@@ -1,19 +1,17 @@
-# TXL Fusion PCA50: code release
+# TXL Fusion: code release
 
 This repository contains the code accompanying the manuscript **TXL Fusion: A Hybrid Machine Learning Framework Integrating Chemical Heuristics and Large Language Models for Topological Materials Discovery**.
 
 The preprint is available here https://arxiv.org/abs/2511.04068
 
 
-This repository provides the PCA50 TXL Fusion implementation used for semantic--numerical fusion in the manuscript. Trained checkpoints, generated predictions, cached embeddings, and database-derived data artifacts are not redistributed.
+This repository provides the TXL Fusion implementation used for semantic--numerical fusion in the manuscript. Trained checkpoints, generated predictions, cached embeddings, and database-derived data artifacts are not redistributed.
 
 TXL Fusion combines three sources of evidence for three-class topological-material classification:
 
 - composition-based heuristic/topogivity scores,
 - numerical and chemistry descriptors trained with XGBoost,
 - semantic embeddings from a fine-tuned SciBERT encoder compressed to 50 PCA components and fused with numerical descriptors.
-
-This is a **code-only release**. It intentionally does **not** redistribute the training data, held-out data, trained model checkpoints, cached embeddings, or generated prediction files.
 
 ## License
 
@@ -33,18 +31,18 @@ After obtaining the source records, convert them into the JSON schema expected b
 
 ## What is included
 
-The release keeps the scripts needed to reproduce the final PCA50 workflow and manuscript analyses:
+The release keeps the scripts needed to reproduce the final workflow and manuscript analyses:
 
 - `gm_three_class_baseline/`: direct three-class composition/topogivity heuristic baseline.
 - `xgb/`: standalone numerical-descriptor XGBoost training and SHAP utilities.
 - `heuristic_xgb/`: XGBoost with numerical descriptors plus heuristic/topogivity features.
-- `llm_pca_50/`: Heuristic + LLM/PCA50 branch training script.
-- `txl_model_pca50/`: final PCA50 TXL Fusion training pipeline.
+- `llm_pca_50/`: Heuristic + LLM/ branch training script.
+- `txl_model_pca50/`: final TXL Fusion training pipeline.
 - `txl_model_pca50/diff_pca_dims/`: PCA explained-variance and PCA-dimension sensitivity scripts used for manuscript analysis.
-- `inference/txl_model_pca50/`: held-out inference script for the final PCA50 TXL model, requiring locally trained artifacts.
-- `inference/external_discovery_space/txl_model_pca50/`: external-screening inference script for the final PCA50 TXL model.
-- `class_imbalance_sensitivity_test/txl_model_pca50/`: PCA50 TXL class-weighting sensitivity experiment.
-- `repeated_split_robustness_test/txl_model_pca50/`: PCA50 TXL repeated-split robustness workflow.
+- `inference/txl_model_pca50/`: held-out inference script for the final TXL model, requiring locally trained artifacts.
+- `inference/external_discovery_space/txl_model_pca50/`: external-screening inference script for the final TXL model.
+- `class_imbalance_sensitivity_test/txl_model_pca50/`: TXL class-weighting sensitivity experiment.
+- `repeated_split_robustness_test/txl_model_pca50/`:  TXL repeated-split robustness workflow.
 - `repeated_split_robustness_test/xgb/`: XGB repeated-split baseline used for comparison.
 - `repeated_split_robustness_test/bootstrap_txl_model_pca50/`: paired-bootstrap comparison against XGB.
 - `calibration_reliability/`: reliability-diagram and ECE plotting scripts.
@@ -66,7 +64,7 @@ Excluded artifacts include:
 - cached embeddings and feature matrices,
 - prediction dumps and generated result tables,
 - generated manuscript figures,
-- exploratory development folders not required for the published PCA50 workflow.
+- exploratory development folders not required for the published workflow.
 
 The `.gitignore` in this release is configured to keep these artifacts out of version control if you regenerate them locally.
 
@@ -141,14 +139,14 @@ cd heuristic_xgb
 python weighted_xgboost_shared_split.py
 ```
 
-### 4. Heuristic + LLM/PCA50 branch
+### 4. Heuristic + LLM branch
 
 ```bash
 cd llm_pca_50
 python train_llm_pca50_model.py
 ```
 
-### 5. Final PCA50 TXL Fusion model
+### 5. Final TXL Fusion model
 
 ```bash
 cd txl_model_pca50
