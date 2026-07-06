@@ -1,0 +1,1 @@
+Run `python run_paired_bootstrap_comparison.py --split-name split_01_seed_101` after both XGB and TXL split outputs are available. It writes separate bootstrap summaries for validation and held-out test.

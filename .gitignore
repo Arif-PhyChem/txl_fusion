@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Logs
+*.log
+*.out
+*.txt
+
+# Large/generated arrays and model artifacts
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+checkpoint-*/
+best_model/
+scibert-finetuned*/
+
+# Trained model exports
+*xgb_model.json
+*txl_model.json
+*model.json
+hierarchical_stage*_model.json
+gated_fusion_state.pt
+pca_model.pkl
+*_scaler.pkl
+
+# Restricted or generated data
+clean_training_data.json
+clean_test_data.json
+shared_split_manifest.json
+scibert_finetune_data.json
+*_predictions.json
+*_predictions_verbose.json
+*features_data.json
+*xgb_data_weighted_shared_split.json
+
+# Generated figures/tables
+*.pdf
+*.png
+*.csv
+*.tex
+
+# Output folders
+output/
+outputs/
+models/
+batch_logs/
+cache/
